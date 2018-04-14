@@ -11,14 +11,29 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-console.log('hi')
-
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  // quantity: Number,
+  // description: String
+
+  username:String,
+  weight:Number,
+  date:Number
+
 });
 
 var Item = mongoose.model('Item', itemSchema);
+
+var save = function(data , callback){
+  var item = new Item(data)
+    item.save(function (err, data) {
+    if (err) {
+      callback(err , null)
+    }
+    //console.log(data)
+    callback(null , data);
+  });
+}
+
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
@@ -30,4 +45,5 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports.save = save;
+module.exports.Item=Item;
