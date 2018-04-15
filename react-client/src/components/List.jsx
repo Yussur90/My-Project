@@ -3,14 +3,14 @@ import ListItem from './ListItem.jsx';
 
 const List = (props) => (
   <div>
-    <h4> the weight schedule </h4>
+    <h4 > The weight schedule </h4>
    
     { props.items.map(item => 
     		<div>
-
-    		<h1>username:</h1><h2>{item.username}</h2>
-            weight:<h2>{item.weight}</h2>
-            date:<h2>{item.date}</h2>
+              
+    		<h1>Username:</h1><h3>{item.username}</h3>
+            <h1>Weight:</h1><h3>{item.weight}</h3>
+            <h1>Date:</h1><h3>{item.date}</h3>
 
     		<ListItem item={item}/>
     		</div>

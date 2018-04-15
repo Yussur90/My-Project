@@ -63,11 +63,11 @@ onChange (e) {
     return (
       <div>
 
-        <h1>submit your name and weight and return to it every month</h1>
+        <h1>Submit your name and weight and return to it every month</h1>
 
-          <p>username:</p><input name='username' onChange={this.onChange} />
-          <p> weight:</p><input  name='weight' onChange={this.onChange} />
-          <p> date:  </p><input  name ='date' onChange={this.onChange} />
+          <p>Username:</p><input name='username' onChange={this.onChange} />
+          <p> Weight:</p><input  name='weight' onChange={this.onChange} />
+          <p> Date:  </p><input  name ='date' onChange={this.onChange} />
           <br></br>
           <br></br>
           <button  style={{width: 70 }} onClick={()=> this.submit(this.state.username,this.state.weight,this.state.date)}>Submit </button>

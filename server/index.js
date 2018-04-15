@@ -10,12 +10,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post("/items", (req, res) => {
- //console.log(req.body)
+ console.log(req.body)
 var data = req.body
 
  db.save(data,function(err,data){
  	if(err){
- 		console.log('yussur')
+ 		console.log('error')
  	}
  	res.send(data)
  })
