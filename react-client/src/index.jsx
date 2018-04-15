@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: [],//{username:"",weight:"",date:""}
+      items: [],
       weight:'',
       username:'',
       date: 0
@@ -16,39 +16,29 @@ class App extends React.Component {
 
     this.submit=this.submit.bind(this);
     this.onChange=this.onChange.bind(this);
-    this.onChange2=this.onChange2.bind(this);
-    this.onChange3=this.onChange3.bind(this);
-
+    this.setState=this.setState.bind(this)
   }
 
 
 onChange (e) {
     this.setState({
-      username: e.target.value
-    });
+     
+       [e.target.name]: e.target.value });
+    
   }
-  onChange2 (e) {
-    this.setState({
-      weight: e.target.value
-    });
-  }
-    onChange3 (e) {
-    this.setState({
-      date: e.target.value
-    });
-  }
+ 
 
 
 
   submit(username,weight,date) {
     
-    var that = this
+    
     $.ajax({ 
       type:'POST',
       url: '/items',
       data:{
-        username:username,//.username
-        weight:weight,//.weight
+        username:username,
+        weight:weight,
         date:date
       },
       success: (data) => {
@@ -60,7 +50,7 @@ onChange (e) {
       type:'GET',
       url: '/items', 
       success: (data) => {
-        that.setState({
+        this.setState({
           items:data
         })
       }
@@ -72,11 +62,15 @@ onChange (e) {
   render () {
     return (
       <div>
-        <h1>Item List</h1>
-          <p>username:</p><input onChange={this.onChange} />
-            <p>weight:</p><input onChange={this.onChange2} />
-            <p>date:</p><input onChange={this.onChange3} />
-          <button onClick={()=> this.submit(this.state.username,this.state.weight,this.state.date)}>add username</button>
+
+        <h1>submit your name and weight and return to it every month</h1>
+
+          <p>username:</p><input name='username' onChange={this.onChange} />
+          <p> weight:</p><input  name='weight' onChange={this.onChange} />
+          <p> date:  </p><input  name ='date' onChange={this.onChange} />
+          <br></br>
+          <br></br>
+          <button  style={{width: 70 }} onClick={()=> this.submit(this.state.username,this.state.weight,this.state.date)}>Submit </button>
         <List items={this.state.items}/>
     </div>
     )

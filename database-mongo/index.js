@@ -12,8 +12,7 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  // quantity: Number,
-  // description: String
+  
 
   username:String,
   weight:Number,
@@ -35,15 +34,15 @@ var save = function(data , callback){
 }
 
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+// var selectAll = function(callback) {
+//   Item.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
 
 module.exports.save = save;
 module.exports.Item=Item;

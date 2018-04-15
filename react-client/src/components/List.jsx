@@ -3,11 +3,15 @@ import ListItem from './ListItem.jsx';
 
 const List = (props) => (
   <div>
-    <h4> List Component </h4>
-    There are { props.items.length } items.
+    <h4> the weight schedule </h4>
+   
     { props.items.map(item => 
     		<div>
-    		<h2>{item.username}</h2>:<h2>{item.weight}</h2>
+
+    		<h1>username:</h1><h2>{item.username}</h2>
+            weight:<h2>{item.weight}</h2>
+            date:<h2>{item.date}</h2>
+
     		<ListItem item={item}/>
     		</div>
     		)
